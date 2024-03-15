@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all states with a name starting with N"""
+"""takes in an argument and displays all values where name mathes"""
 import MySQLdb
 from sys import argv
 
