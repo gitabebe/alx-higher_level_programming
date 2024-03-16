@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ creates the State “California” with the City “San Francisco” """
 from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_state import State
+from relationship_city import Base, City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -13,13 +13,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     session.add(City(name="San Francisco", state=State(name="California")))
-    session.commit()
-    session.close()
-
-    california_state = State(name='California')
-    san_francisco_city = City(name='San Francisco')
-    california_state.cities.append(san_francisco_city)
-
-    session.add(california_state)
     session.commit()
     session.close()
