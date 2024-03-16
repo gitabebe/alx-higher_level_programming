@@ -15,3 +15,11 @@ if __name__ == "__main__":
     session.add(City(name="San Francisco", state=State(name="California")))
     session.commit()
     session.close()
+
+    california_state = State(name='California')
+    san_francisco_city = City(name='San Francisco')
+    california_state.cities.append(san_francisco_city)
+
+    session.add(california_state)
+    session.commit()
+    session.close()
